@@ -1,5 +1,5 @@
 <?php
-//27-11-2018
+//30-11-2018
 //started on 27-02-2018
 // La app di Heroku si puo richiamare da browser con
 //			https://bedzie.herokuapp.com/
@@ -58,7 +58,7 @@ if(strpos($text, "/start") === 0 || $text=="ciao" || $text == "help"){
 }
 
 //<-- Comandi ai rele
-elseif($text=="/on_on"){
+elseif(strpos($text,"on_on")){
 	$response = file_get_contents("http://dario95.ddns.net:8083/rele/1/3");
 }
 elseif($text=="/2on_1off"){
@@ -92,8 +92,11 @@ else
 // text è il testo della risposta
 $parameters = array('chat_id' => $chatId, "text" => $response);
 $parameters["method"] = "sendMessage";
+// Gli EMOTICON sono a:     http://www.charbase.com/block/miscellaneous-symbols-and-pictographs
+//													https://unicode.org/emoji/charts/full-emoji-list.html
+//													https://apps.timwhitlock.info/emoji/tables/unicode
 // imposto la keyboard
-$parameters["reply_markup"] = '{ "keyboard": [["/on_on", "/2on_1off"],["/2off_1on", "/off_off \ud83d\udd35"],["/letto"]], "one_time_keyboard": false, "resize_keyboard": true}';
+$parameters["reply_markup"] = '{ "keyboard": [["/on_on \ud83d\udd34", "/2on_1off"],["/2off_1on", "/off_off \ud83d\udd35"],["/letto"]], "one_time_keyboard": false, "resize_keyboard": true}';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 ?>
