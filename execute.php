@@ -1,9 +1,11 @@
 <?php
-//27-12-2018
+//23-02-2021
 //started on 27-02-2018
 // La app di Heroku si puo richiamare da browser con
 //			https://bedzie.herokuapp.com/
-
+// Account Heroku:  dariomelucci@gmail.com   pwd:  Bg_142666
+// Account GitHub:	attiliomelucci@gmail.com pwd:  bg142666    name: attilio26
+// @bedziebot
 
 /*API key = 554186515:AAG2DMXJOJlzPEuCN99F6WlSfd7qUY72YSE
 
@@ -46,10 +48,10 @@ header("Content-Type: application/json");
 //ATTENZIONE!... Tutti i testi e i COMANDI contengono SOLO lettere minuscole
 $response = '';
 $helptext = "List of commands : 
-/on_on    -> Outlet2 ON  Outlet1 ON 
-/2on_1off -> Outlet2 ON  Outlet1 OFF  
-/2off_1on -> Outlet2 OFF Outlet1 ON
-/off_off  -> Outlet2 OFF Outlet1 OFF
+/Presa_BED ON			-> Outlet2 ON   
+/Presa_BED OFF		-> Outlet2 OFF   
+/Presa_LIVING ON	-> Outlet1 ON   
+/Presa_LIVING OFF	-> Outlet1 OFF 
 /letto  -> Lettura stazione1 ... su bus RS485
 ";
 
@@ -58,16 +60,16 @@ if(strpos($text, "/start") === 0 || $text=="ciao" || $text == "help"){
 }
 
 //<-- Comandi ai rele
-elseif(strpos($text,"on_on")){
-	$response = file_get_contents("http://dario95.ddns.net:8083/rele/1/3");
+elseif(strpos($text,"bedon")){
+	$response = file_get_contents("http://dario95.ddns.net:8083/?a=o");
 }
-elseif($text=="/2on_1off"){
-	$response = file_get_contents("http://dario95.ddns.net:8083/rele/1/2");
+elseif(strpos($text,"bedoff")){
+	$response = file_get_contents("http://dario95.ddns.net:8083/?a=p");
 }
-elseif($text=="/2off_1on"){
-	$response = file_get_contents("http://dario95.ddns.net:8083/rele/1/1");
+elseif(strpos($text,"livon")){
+	$response = file_get_contents("http://dario95.ddns.net:8083/?a=q");
 }
-elseif(strpos($text,"off_off")){
+elseif(strpos($text,"livoff")){
 	$response = file_get_contents("http://dario95.ddns.net:8083/rele/1/0");
 }
 //<-- Lettura parametri slave5
@@ -96,7 +98,7 @@ $parameters["method"] = "sendMessage";
 //													https://unicode.org/emoji/charts/full-emoji-list.html
 //													https://apps.timwhitlock.info/emoji/tables/unicode
 // imposto la keyboard
-$parameters["reply_markup"] = '{ "keyboard": [["/on_on \ud83d\udd34", "/2on_1off"],["/2off_1on", "/off_off \ud83d\udd35"],["/letto \u2753"]], "one_time_keyboard": false, "resize_keyboard": true}';
+$parameters["reply_markup"] = '{ "keyboard": [["/bedon \ud83d\udd34", "/bedoff \ud83d\udd35"],["/livon \ud83d\udd34", "/livoff \ud83d\udd35"],["/letto \u2753"]], "one_time_keyboard": false, "resize_keyboard": true}';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 ?>
