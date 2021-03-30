@@ -36,12 +36,26 @@ function clean_html_page($str_in){
 	//$str_in = str_replace("1'/>"," ",$str_in);
 	//$str_in = str_replace("2'/>"," ",$str_in);
 	//$str_in = str_replace("3'/>"," ",$str_in);
-	//$str_in = str_replace("4'/>"," ",$str_in);
-	//$str_in = str_replace("5'/>"," ",$str_in);
-	//$str_in = str_replace("6'/>"," ",$str_in);
-	//$str_in = str_replace("7'/>"," ",$str_in);	
-	//$str_in = str_replace("8'/>"," ",$str_in);
-	//$str_in = str_replace("9'/>"," ",$str_in);		
+	$str_in = str_replace("4'/>"," ",$str_in);
+	$str_in = str_replace("5'/>"," ",$str_in);
+	$str_in = str_replace("6'/>"," ",$str_in);
+	$str_in = str_replace("7'/>"," ",$str_in);	
+	$str_in = str_replace("8'/>"," ",$str_in);
+	$str_in = str_replace("9'/>"," ",$str_in);
+	$str_in = str_replace("a'/>"," ",$str_in);	
+	$str_in = str_replace("b'/>"," ",$str_in);	
+	$str_in = str_replace("c'/>"," ",$str_in);	
+	$str_in = str_replace("d'/>"," ",$str_in);	
+	$str_in = str_replace("e'/>"," ",$str_in);	
+	$str_in = str_replace("f'/>"," ",$str_in);	
+	$str_in = str_replace("g'/>"," ",$str_in);	
+	$str_in = str_replace("h'/>"," ",$str_in);	
+	$str_in = str_replace("i'/>"," ",$str_in);	
+	$str_in = str_replace("l'/>"," ",$str_in);	
+	$str_in = str_replace("m'/>"," ",$str_in);	
+	$str_in = str_replace("n'/>"," ",$str_in);
+	$str_in = str_replace("o'/>"," ",$str_in);	
+	$str_in = str_replace("p'/>"," ",$str_in);
 	return $str_in;
 }
 
