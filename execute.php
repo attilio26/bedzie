@@ -93,19 +93,19 @@ if(strpos($text, "/start") === 0 || $text=="ciao" || $text == "help"){
 }
 
 //<-- Comandi ai rele
-elseif(strpos($text,"bedon")){
+elseif(strpos($text,"livon")){
 	$resp = file_get_contents("http://dario95.ddns.net:8083/?a=o");
 	$response = clean_html_page($resp);
 }
-elseif(strpos($text,"bedoff")){
+elseif(strpos($text,"livoff")){
 	$resp = file_get_contents("http://dario95.ddns.net:8083/?a=p");
 	$response = clean_html_page($resp);
 }
-elseif(strpos($text,"livon")){
+elseif(strpos($text,"bedon")){
 	$resp = file_get_contents("http://dario95.ddns.net:8083/?a=q");
 	$response = clean_html_page($resp);
 }
-elseif(strpos($text,"livoff")){
+elseif(strpos($text,"bedoff")){
 	$resp = file_get_contents("http://dario95.ddns.net:8083/?a=r");
 	$response = clean_html_page($resp);
 }
