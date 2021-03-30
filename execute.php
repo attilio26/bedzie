@@ -8,15 +8,12 @@
 // @bedziebot
 
 /*API key = 554186515:AAG2DMXJOJlzPEuCN99F6WlSfd7qUY72YSE
-
 da browser request ->   https://bedzie.herokuapp.com/register.php
            answer  <-   {"ok":true,"result":true,"description":"Webhook is already set"}
 In questo modo invocheremo lo script register.php che ha lo scopo di comunicare a Telegram
 l’indirizzo dell’applicazione web che risponderà alle richieste del bot.
-
 da browser request ->   https://api.telegram.org/bot554186515:AAG2DMXJOJlzPEuCN99F6WlSfd7qUY72YSE/getMe
            answer  <-   {"ok":true,"result":{"id":554186515,"is_bot":true,"first_name":"bedzie","username":"bedzie_bot"}}
-
 riferimenti:
 https://gist.github.com/salvatorecordiano/2fd5f4ece35e75ab29b49316e6b6a273
 https://www.salvatorecordiano.it/creare-un-bot-telegram-guida-passo-passo/
@@ -31,7 +28,7 @@ if(!$update)
 
 function clean_html_page($str_in){
 	$startch = strpos($str_in," <a href='?a=2'/> ") + 1 ;							//primo carattere utile da estrarre
-	$endch = strpos($str_in,"ter>powerd") -4;									//ultimo carattere utile da estrarre
+	$endch = strpos($str_in,">Tds") -4;									//ultimo carattere utile da estrarre
 	$str_in = substr($str_in,$startch,$endch - $startch);				// substr(string,start,length)
 	//$str_in = str_replace("<a href='?a="," ",$str_in);
 	//$str_in = str_replace("r><h2>"," ",$str_in);
